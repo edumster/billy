@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem ipsum dolor sit amet, consectetur adipiscing elit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #eaf6f8, #eaf6f8);
+            color: rgb(0, 0, 0);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            background: #eaf6f8;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .logo-text {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .call-btn {
+            background: #2b727e;
+            border: 2px solid white;
+            border-radius: 30px;
+            padding: 8px 15px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .call-btn:hover {
+            background: #338796;
+            color: white;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .chat-container {
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .message-container {
+            display: flex;
+            margin-bottom: 15px;
+            max-width: 80%;
+            align-self: flex-start;
+        }
+        
+        .user-message-container {
+            display: flex;
+            margin-bottom: 15px;
+            max-width: 80%;
+            align-self: flex-end;
+            justify-content: flex-end;
+        }
+        
+        .agent-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        
+        .message {
+            padding: 12px 16px;
+            border-radius: 18px;
+            animation: fadeIn 0.3s ease;
+            position: relative;
+        }
+        
+        .bot-message {
+            background: #eaf6f8;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .user-message {
+            background: #eaf6f8;
+            color: black;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .typing-indicator {
+            display: flex;
+            padding: 12px 16px;
+            background: #eaf6f8;
+            border-radius: 18px;
+            align-self: flex-start;
+            margin-bottom: 15px;
+            max-width: 80px;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: black;
+            border-radius: 50%;
+            margin: 0 3px;
+            animation: typingAnimation 1.4s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(1) { animation-delay: 0s; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .option-btn {
+            background: white;
+            border: 2px solid #7fcbd7;
+            border-radius: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .option-btn:hover {
+            background: #7fcbd7;
+            color: white;
+        }
+        
+        .input-container {
+            padding: 15px;
+            background: #eaf6f8;
+            display: flex;
+            border-top: 1px solid #eee;
+        }
+        
+        .input-container input {
+            flex: 1;
+            background: #eaf6f8;
+            padding: 12px 15px;
+            border: 1px solid #eaf6f8;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .input-container button {
+            background: #2b727e;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .input-container button:hover {
+            background: #338796;
+        }
+        
+        .cta-button {
+            padding: 16px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 18px;
+            background: #2b727e;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px #2B727E;
+            margin: 15px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .cta-button:hover {
+            background: #2a616b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px #2B727E;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes typingAnimation {
+            0%, 100% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 15px;
+                flex-direction: column;
+            }
+            
+            .header-top {
+                margin-bottom: 10px;
+            }
+            
+            .message-container, .user-message-container {
+                max-width: 90%;
+            }
+            
+            .cta-button {
+                padding: 14px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <div class="logo-img">MT</div>
+                        <div class="logo-text">MASSTORT</div>
+                    </div>
+                    <button class="call-btn" onclick="callNow()">
+                        <i class="fas fa-phone"></i> Call Now
+                    </button>
+                </div>
+                <p>Nullam efficitur justo eget arcu tempus, quis aliquet velit bibendum</p>
+            </div>
+        </div>
+        
+        <div class="chat-container" id="chat-container">
+            <div class="message-container">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80" class="agent-avatar" alt="Health Agent">
+                <div class="message bot-message">
+                    Are you a Man or Woman?
+                </div>
+            </div>
+            <div class="message-container">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80" class="agent-avatar" alt="Health Agent">
+                <div class="message bot-message">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                </div>
+            </div>
+            <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+        
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Lorem ipsum dolor sit amet...">
+            <button id="send-btn">Send <i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatContainer = document.getElementById('chat-container');
+            const userInput = document.getElementById('user-input');
+            const sendBtn = document.getElementById('send-btn');
+            const typingIndicator = document.getElementById('typing-indicator');
+            
+            let currentStep = 1;
+            let userData = {
+                age: '',
+                healthCondition: '',
+                income: '',
+                zipCode: ''
+            };
+            
+            // Show typing indicator
+            function showTypingIndicator() {
+                typingIndicator.style.display = 'flex';
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            
+            // Hide typing indicator
+            function hideTypingIndicator() {
+                typingIndicator.style.display = 'none';
+            }
+            
+            // Add message to chat
+            function addMessage(message, isUser = false) {
+                if (isUser) {
+                    const userMessageContainer = document.createElement('div');
+                    userMessageContainer.classList.add('user-message-container');
+                    
+                    const messageDiv = document.createElement('div');
+                    messageDiv.classList.add('message');
+                    messageDiv.classList.add('user-message');
+                    messageDiv.textContent = message;
+                    
+                    userMessageContainer.appendChild(messageDiv);
+                    chatContainer.insertBefore(userMessageContainer, typingIndicator);
+                } else {
+                    const messageContainer = document.createElement('div');
+                    messageContainer.classList.add('message-container');
+                    
+                    const agentImg = document.createElement('img');
+                    agentImg.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80';
+                    agentImg.classList.add('agent-avatar');
+                    agentImg.alt = 'Health Agent';
+                    
+                    const messageDiv = document.createElement('div');
+                    messageDiv.classList.add('message');
+                    messageDiv.classList.add('bot-message');
+                    messageDiv.textContent = message;
+                    
+                    messageContainer.appendChild(agentImg);
+                    messageContainer.appendChild(messageDiv);
+                    chatContainer.insertBefore(messageContainer, typingIndicator);
+                }
+                
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            
+            // Show options for user to select
+            function showOptions(options) {
+                const optionsDiv = document.createElement('div');
+                optionsDiv.classList.add('options');
+                
+                options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.classList.add('option-btn');
+                    button.textContent = option;
+                    button.addEventListener('click', () => {
+                        // Clear any existing options
+                        const existingOptions = document.querySelectorAll('.options');
+                        existingOptions.forEach(opt => opt.remove());
+                        
+                        addMessage(option, true);
+                        processResponse(option);
+                    });
+                    optionsDiv.appendChild(button);
+                });
+                
+                chatContainer.insertBefore(optionsDiv, typingIndicator);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            
+            // Process user response
+            function processResponse(response) {
+                userInput.value = '';
+                
+                showTypingIndicator();
+                
+                setTimeout(() => {
+                    hideTypingIndicator();
+                    
+                    switch (currentStep) {
+                        case 1:
+                            userData.age = response;
+                            addMessage("Have you ever used Uber or Lyft before?");
+                            showOptions(['Yes', 'No']);
+                            currentStep = 2;
+                            break;
+                        case 2:
+                            userData.healthCondition = response;
+                            addMessage("Nullam efficitur justo eget arcu tempus, quis aliquet velit bibendum?");
+                            showOptions(['Under $2,000', '$2,000 - $4,000', '$4,000 - $6,000', 'Over $6,000']);
+                            currentStep = 3;
+                            break;
+                        case 3:
+                            userData.income = response;
+                            addMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit?");
+                            currentStep = 4;
+                            break;
+                        case 4:
+                            userData.zipCode = response;
+                            addMessage("Nullam efficitur justo eget arcu tempus, quis aliquet velit bibendum...");
+                            showFinalMessage();
+                            currentStep = 5;
+                            break;
+                    }
+                }, 1000);
+            }
+            
+            // Handle user response from input field
+            function handleResponse() {
+                const response = userInput.value.trim();
+                
+                if (!response) return;
+                
+                // Clear any existing options
+                const existingOptions = document.querySelectorAll('.options');
+                existingOptions.forEach(opt => opt.remove());
+                
+                addMessage(response, true);
+                processResponse(response);
+            }
+            
+            // Show final message after quiz completion
+            function showFinalMessage() {
+                showTypingIndicator();
+                
+                setTimeout(() => {
+                    hideTypingIndicator();
+                    
+                    // Add call button
+                    const callButtonDiv = document.createElement('div');
+                    callButtonDiv.style.textAlign = 'center';
+                    callButtonDiv.style.margin = '15px 0';
+                    callButtonDiv.innerHTML = `
+                        <button class="cta-button" onclick="callNow()">
+                            <i class="fas fa-phone"></i> Call Now: (855) 342-7636
+                        </button>
+                    `;
+                    chatContainer.appendChild(callButtonDiv);
+                    
+                    // Show completion message
+                    const resultContainer = document.createElement('div');
+                    resultContainer.style.textAlign = 'center';
+                    resultContainer.style.padding = '20px';
+                    resultContainer.innerHTML = `
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Nullam efficitur justo eget arcu tempus, quis aliquet velit bibendum.</p>
+                    `;
+                    chatContainer.appendChild(resultContainer);
+                    
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                }, 2000);
+            }
+            
+            // Call now function
+            window.callNow = function() {
+                window.location.href = 'tel:+18553427636';
+            }
+            
+            // Event listeners
+            sendBtn.addEventListener('click', handleResponse);
+            userInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleResponse();
+            });
+            
+            // Show initial options for age question
+            setTimeout(() => {
+                showOptions(['Yes', 'No',]);
+            }, 500);
+        });
+    </script>
+</body>
+</html>
