@@ -18,9 +18,7 @@
       --ring: #1f4f8a;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -45,60 +43,23 @@
       border: 0;
       cursor: pointer;
       transition: 0.2s transform, 0.2s background;
-      text-align: center;
       position: relative;
       overflow: hidden;
       font-size: 15px;
       min-height: 46px;
     }
-
     button:hover { background: #0b7926; transform: translateY(-1px); }
 
-    .eyebrow {
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: #ca2b2b;
-      font-weight: 900;
-    }
+    .eyebrow { letter-spacing: .08em; text-transform: uppercase; color: #ca2b2b; font-weight: 900; }
 
-    header {
-      border-bottom: 1px solid #ececec;
-      background: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
+    header{border-bottom:1px solid #ececec;background:#fff;position:sticky;top:0;z-index:50;}
+.header-grid{display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px;}
+.logo img{border-radius:8px;}
+.call{display:flex;align-items:center;gap:10px;padding:10px 14px;border:2px solid var(--ring);color:var(--ring);border-radius:10px;font-weight:700;}
 
-    .header-grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 16px;
-    }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-size: 20px;
-    }
-
-    .call {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border: 2px solid var(--ring);
-      color: var(--ring);
-      border-radius: 10px;
-      font-weight: 700;
-    }
-
-    .hero {
-      padding: 40px 20px;
-      text-align: center;
-    }
+    .hero { padding: 40px 20px; text-align: center; }
 
     .hero h1 {
       font-size: clamp(26px, 4vw, 44px);
@@ -115,10 +76,7 @@
       color: var(--muted);
     }
 
-    .pulse {
-      animation: pulse 1.8s infinite;
-    }
-
+    .pulse { animation: pulse 1.8s infinite; }
     @keyframes pulse {
       0% { box-shadow: 0 0 0 0 rgba(40,167,69,0.5); }
       70% { box-shadow: 0 0 0 15px rgba(40,167,69,0); }
@@ -147,131 +105,87 @@
       padding: 16px 0;
       text-align: center;
     }
-
     footer a { color: var(--ring); }
 
-    /* ✅ Cookie Popup with Read More */
-    .cookie-box {
+    /* ✅ Cookie Toggle Icon */
+    #cookieToggle {
       position: fixed;
       bottom: 20px;
-      right: 20px;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      padding: 16px 18px;
-      font-family: "Poppins", sans-serif;
-      color: #333;
-      font-size: 14px;
-      z-index: 9999;
-      max-width: 310px;
-      transition: all 0.3s ease;
-      animation: fadeInUp 0.4s ease;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .cookie-box p {
-      margin: 0 0 10px;
-      line-height: 1.4;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      transition: 0.3s ease;
-    }
-
-    .cookie-box.expanded p {
-      -webkit-line-clamp: unset;
-    }
-
-    .read-more {
-      color: #007bff;
+      left: 20px;
+      background: #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
       cursor: pointer;
-      font-size: 13px;
-      display: inline-block;
-      margin-bottom: 8px;
+      z-index: 9999;
+      transition: all 0.3s ease;
     }
+    #cookieToggle:hover { transform: scale(1.1); }
+    #cookieToggle i { font-size: 22px; color: #555; }
+
+    /* ✅ Cookie Box */
+    #cookieBox {
+      position: fixed;
+      bottom: 80px;
+      left: 10px;
+      right: 10px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      padding: 16px;
+      display: none;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.4s ease;
+      z-index: 9999;
+      max-width: 400px;
+      margin: auto;
+    }
+    #cookieBox.show { display: block; opacity: 1; transform: translateY(0); }
+    #cookieBox p { font-size: 14px; color: #333; margin-bottom: 10px; line-height: 1.5; }
 
     .cookie-buttons {
-      display: flex;
-      justify-content: flex-end;
-      gap: 8px;
-      flex-wrap: wrap;
+      display: flex; justify-content: flex-end; gap: 10px;
     }
-
     .cookie-buttons button {
-      border: none;
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 13px;
-      cursor: pointer;
-      transition: background 0.2s ease;
+      padding: 7px 16px; border: none; border-radius: 8px;
+      cursor: pointer; font-size: 13px; transition: all 0.3s ease;
     }
+    .accept { background: #4CAF50; color: #fff; }
+    .accept:hover { background: #43a047; }
+    .dismiss { background: #e0e0e0; color: #333; }
+    .dismiss:hover { background: #d5d5d5; }
 
-    .cookie-buttons .accept { background: #007bff; color: #fff; }
-    .cookie-buttons .dismiss { background: #f1f1f1; color: #333; }
-    .cookie-buttons .accept:hover { background: #0056b3; }
-    .cookie-buttons .dismiss:hover { background: #e2e2e2; }
-
-    @media (max-width: 600px) {
-      .cookie-box {
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        max-width: unset;
-        font-size: 13px;
-        border-radius: 12px;
-        padding: 14px;
+    @media(min-width:768px) {
+      #cookieToggle { display: none; }
+      #cookieBox {
+        display: block; opacity: 1; transform: none;
+        position: fixed; bottom: 20px; right: 20px; left: auto; max-width: 350px;
       }
-
-      .cookie-buttons {
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .cookie-buttons button { width: 100%; }
     }
-
-    .ripple {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 50%;
-      transform: scale(0);
-      animation: ripple-anim 0.6s linear;
-      pointer-events: none;
-    }
-
-    @keyframes ripple-anim {
-      to { transform: scale(8); opacity: 0; }
-    }
-
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="wrap header-grid">
-      <div class="logo">
-        <img width="215" height="67" src="/wp-content/uploads/2025/06/logo-3.png" alt="Billy.com logo">
-      </div>
-      <a class="call" href="tel:+18774251967">
-        <i class="fa-solid fa-phone" style="font-size:20px;color:transparent;-webkit-text-stroke:2px #1F4F8A;"></i>
-        (877) 425 1967
-      </a>
-    </div>
-  </header>
-
+    <header>
+        <div class="wrap header-grid">
+          <div class="logo">
+              <img src="https://quotes.billy.com/wp-content/uploads/2025/06/logo-3.png" alt="HVAC Logo">
+      
+          </div>
+          <a class="call" href="tel:+1234567890">
+            (123) 456-7890
+          </a>
+        </div>
+      </header>
   <section class="hero wrap">
     <div class="eyebrow">Protect Your Home from the Top Down</div>
     <h1>Keep your home safe and secure <span style="color:hsl(202, 100%, 23%)">with expert roofing services.</span></h1>
-    <p>
-      Get matched with vetted roofing contractors near you. Compare free quotes, explore material options, and choose a solution that fits your budget and timeline.
-    </p>
+    <p>Get matched with vetted roofing contractors near you. Compare free quotes, explore material options, and choose a solution that fits your budget and timeline.</p>
     <button class="btn pulse">CHECK IF MY ZIP CODE QUALIFIES >></button>
   </section>
 
@@ -292,13 +206,14 @@
     <p>© 2025 All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
   </footer>
 
+  <!-- ✅ Cookie Toggle Icon -->
+  <div id="cookieToggle">
+    <i class="fa-solid fa-cookie-bite"></i>
+  </div>
+
   <!-- ✅ Cookie Box -->
-  <div class="cookie-box" id="cookieBox">
-    <p id="cookieText">
-      🍪 We use cookies to improve your experience, analyze site traffic, and show personalized offers.
-      Your privacy matters to us, and we ensure your data is handled securely and responsibly.
-    </p>
-    <span id="readMore" class="read-more">Read more</span>
+  <div id="cookieBox">
+    <p>🍪 We use cookies to improve your experience, analyze site traffic, and show personalized offers. Your privacy matters to us.</p>
     <div class="cookie-buttons">
       <button class="accept">Accept</button>
       <button class="dismiss">Dismiss</button>
@@ -306,70 +221,54 @@
   </div>
 
   <script>
-    // ✅ Read more logic
     const cookieBox = document.getElementById("cookieBox");
-    const readMoreBtn = document.getElementById("readMore");
-    readMoreBtn.addEventListener("click", () => {
-      cookieBox.classList.toggle("expanded");
-      readMoreBtn.textContent = cookieBox.classList.contains("expanded") ? "Read less" : "Read more";
+    const cookieToggle = document.getElementById("cookieToggle");
+    const acceptBtn = document.querySelector(".accept");
+    const dismissBtn = document.querySelector(".dismiss");
+    const saved = localStorage.getItem("cookieDecision");
+
+    // If already accepted or dismissed
+    if (saved === "accepted" || saved === "dismissed") {
+      cookieBox.style.display = "none";
+      cookieToggle.style.display = "none";
+    }
+
+    // Toggle show/hide
+    cookieToggle.addEventListener("click", () => {
+      cookieBox.classList.toggle("show");
     });
 
-    // ✅ Cookie decision
-    const acceptBtn = cookieBox.querySelector(".accept");
-    const dismissBtn = cookieBox.querySelector(".dismiss");
-    const saved = localStorage.getItem("cookieDecision");
-    if (saved === "accepted" || saved === "dismissed") cookieBox.style.display = "none";
-
-    const hideBox = () => {
-      cookieBox.style.opacity = "0";
-      cookieBox.style.transform = "translateY(20px)";
-      setTimeout(() => (cookieBox.style.display = "none"), 300);
+    const hideAll = () => {
+      cookieBox.classList.remove("show");
+      setTimeout(() => {
+        cookieBox.style.display = "none";
+        cookieToggle.style.display = "none";
+      }, 400);
     };
 
+    // Accept button
     acceptBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  localStorage.setItem("cookieDecision", "accepted");
-
-  // ✅ Google Consent Mode update
-  if (typeof gtag === "function") {
-    gtag("consent", "update", {
-      ad_storage: "granted",
-      analytics_storage: "granted",
+      e.stopPropagation();
+      localStorage.setItem("cookieDecision", "accepted");
+      if (typeof gtag === "function") {
+        gtag("consent", "update", { ad_storage: "granted", analytics_storage: "granted" });
+      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "cookie_consent", consent: "granted" });
+      hideAll();
     });
-  }
 
-  // ✅ For Google Tag Manager
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: "cookie_consent",
-    consent: "granted",
-  });
-
-  hideBox();
-});
-
-dismissBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  localStorage.setItem("cookieDecision", "dismissed");
-
-  // ❌ Deny consent
-  if (typeof gtag === "function") {
-    gtag("consent", "update", {
-      ad_storage: "denied",
-      analytics_storage: "denied",
+    // Dismiss button
+    dismissBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      localStorage.setItem("cookieDecision", "dismissed");
+      if (typeof gtag === "function") {
+        gtag("consent", "update", { ad_storage: "denied", analytics_storage: "denied" });
+      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "cookie_consent", consent: "denied" });
+      hideAll();
     });
-  }
-
-  // ❌ For GTM
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: "cookie_consent",
-    consent: "denied",
-  });
-
-  hideBox();
-});
-
   </script>
 </body>
 </html>
