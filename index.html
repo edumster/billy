@@ -1,274 +1,527 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/png" href="/wp-content/uploads/2025/06/cropped-favicon.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>Roofing Upgrades | Billy.com</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem ipsum dolor sit amet, consectetur adipiscing elit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #eaf6f8, #eaf6f8);
+            color: rgb(0, 0, 0);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
 
-  <style>
-    :root {
-      --brand: #ff8a00;
-      --brand-dark: #e47600;
-      --ink: #0d1b2a;
-      --muted: #667085;
-      --bg: #ffffff;
-      --card: #f7f7f8;
-      --ring: #1f4f8a;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    * { box-sizing: border-box; }
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            background: #eaf6f8;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000000;
+        }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.6;
-    }
-
-    a { color: var(--ring); text-decoration: none; }
-    img { max-width: 100%; display: block; height: auto; }
-
-    .wrap { max-width: 1100px; margin-inline: auto; padding: 20px; }
-
-    button {
-      display: inline-block;
-      background: #096820;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 6px;
-      font-weight: 600;
-      border: 0;
-      cursor: pointer;
-      transition: 0.2s transform, 0.2s background;
-      position: relative;
-      overflow: hidden;
-      font-size: 15px;
-      min-height: 46px;
-    }
-    button:hover { background: #0b7926; transform: translateY(-1px); }
-
-    .eyebrow { letter-spacing: .08em; text-transform: uppercase; color: #ca2b2b; font-weight: 900; }
-
-    header{border-bottom:1px solid #ececec;background:#fff;position:sticky;top:0;z-index:50;}
-.header-grid{display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;}
-.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px;}
-.logo img{border-radius:8px;}
-.call{display:flex;align-items:center;gap:10px;padding:10px 14px;border:2px solid var(--ring);color:var(--ring);border-radius:10px;font-weight:700;}
-
-
-    .hero { padding: 40px 20px; text-align: center; }
-
-    .hero h1 {
-      font-size: clamp(26px, 4vw, 44px);
-      line-height: 1.2;
-      font-weight: 900;
-      margin: 12px 0;
-    }
-
-    .hero p {
-      font-size: 16px;
-      max-width: 650px;
-      margin-inline: auto;
-      margin-bottom: 20px;
-      color: var(--muted);
-    }
-
-    .pulse { animation: pulse 1.8s infinite; }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(40,167,69,0.5); }
-      70% { box-shadow: 0 0 0 15px rgba(40,167,69,0); }
-      100% { box-shadow: 0 0 0 0 rgba(40,167,69,0); }
-    }
-
-    .ba { padding: 20px; }
-    .ba img { border-radius: 8px; }
-
-    .testimonials { padding: 20px; }
-    .t-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .t-card {
-      background: var(--card);
-      border: 1px solid #ececec;
-      border-radius: 14px;
-      padding: 18px;
-    }
-
-    .t-stars { color: #f4c150; }
-    .t-name { font-weight: 800; margin-top: 6px; }
-    .t-loc { color: var(--muted); font-size: 14px; margin-top: -4px; }
-
-    footer {
-      background: #fafafa;
-      border-top: 1px solid #ececec;
-      padding: 16px 0;
-      text-align: center;
-    }
-    footer a { color: var(--ring); }
-
-    /* ✅ Cookie Toggle Icon */
-    #cookieToggle {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: #fff;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-      cursor: pointer;
-      z-index: 9999;
-      transition: all 0.3s ease;
-    }
-    #cookieToggle:hover { transform: scale(1.1); }
-    #cookieToggle i { font-size: 22px; color: #555; }
-
-    /* ✅ Cookie Box */
-    #cookieBox {
-      position: fixed;
-      bottom: 80px;
-      left: 10px;
-      right: 10px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      padding: 16px;
-      display: none;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.4s ease;
-      z-index: 9999;
-      max-width: 400px;
-      margin: auto;
-    }
-    #cookieBox.show { display: block; opacity: 1; transform: translateY(0); }
-    #cookieBox p { font-size: 14px; color: #333; margin-bottom: 10px; line-height: 1.5; }
-
-    .cookie-buttons {
-      display: flex; justify-content: flex-end; gap: 10px;
-    }
-    .cookie-buttons button {
-      padding: 7px 16px; border: none; border-radius: 8px;
-      cursor: pointer; font-size: 13px; transition: all 0.3s ease;
-    }
-    .accept { background: #4CAF50; color: #fff; }
-    .accept:hover { background: #43a047; }
-    .dismiss { background: #e0e0e0; color: #333; }
-    .dismiss:hover { background: #d5d5d5; }
-
-    @media(min-width:768px) {
-      #cookieToggle { display: none; }
-      #cookieBox {
-        display: block; opacity: 1; transform: none;
-        position: fixed; bottom: 20px; right: 20px; left: auto; max-width: 350px;
-      }
-    }
-  </style>
+        .logo-text {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .call-btn {
+            background: #2b727e;
+            border: 2px solid white;
+            border-radius: 30px;
+            padding: 8px 15px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .call-btn:hover {
+            background: #338796;
+            color: white;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .chat-container {
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .message-container {
+            display: flex;
+            margin-bottom: 15px;
+            max-width: 80%;
+            align-self: flex-start;
+        }
+        
+        .user-message-container {
+            display: flex;
+            margin-bottom: 15px;
+            max-width: 80%;
+            align-self: flex-end;
+            justify-content: flex-end;
+        }
+        
+        .agent-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        
+        .message {
+            padding: 12px 16px;
+            border-radius: 18px;
+            animation: fadeIn 0.3s ease;
+            position: relative;
+        }
+        
+        .bot-message {
+            background: #eaf6f8;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .user-message {
+            background: #eaf6f8;
+            color: black;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .typing-indicator {
+            display: flex;
+            padding: 12px 16px;
+            background: #eaf6f8;
+            border-radius: 18px;
+            align-self: flex-start;
+            margin-bottom: 15px;
+            max-width: 80px;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: black;
+            border-radius: 50%;
+            margin: 0 3px;
+            animation: typingAnimation 1.4s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(1) { animation-delay: 0s; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .option-btn {
+            background: white;
+            border: 2px solid #7fcbd7;
+            border-radius: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .option-btn:hover {
+            background: #7fcbd7;
+            color: white;
+        }
+        
+        .input-container {
+            padding: 15px;
+            background: #eaf6f8;
+            display: flex;
+            border-top: 1px solid #eee;
+        }
+        
+        .input-container input {
+            flex: 1;
+            background: #eaf6f8;
+            padding: 12px 15px;
+            border: 1px solid #eaf6f8;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .input-container button {
+            background: #2b727e;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .input-container button:hover {
+            background: #338796;
+        }
+        
+        .cta-button {
+            padding: 16px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 18px;
+            background: #2b727e;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px #2B727E;
+            margin: 15px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .cta-button:hover {
+            background: #2a616b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px #2B727E;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes typingAnimation {
+            0%, 100% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 15px;
+                flex-direction: column;
+            }
+            
+            .header-top {
+                margin-bottom: 10px;
+            }
+            
+            .message-container, .user-message-container {
+                max-width: 90%;
+            }
+            
+            .cta-button {
+                padding: 14px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <header>
-        <div class="wrap header-grid">
-          <div class="logo">
-              <img src="https://quotes.billy.com/wp-content/uploads/2025/06/logo-3.png" alt="HVAC Logo">
-      
-          </div>
-          <a class="call" href="tel:+1234567890">
-            (123) 456-7890
-          </a>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <div class="logo-img">MT</div>
+                        <div class="logo-text">MASSTORT</div>
+                    </div>
+                    <button class="call-btn" onclick="callNow()">
+                        <i class="fas fa-phone"></i> Call Now
+                    </button>
+                </div>
+                <p>Nullam efficitur justo eget arcu tempus, quis aliquet velit bibendum</p>
+            </div>
         </div>
-      </header>
-  <section class="hero wrap">
-    <div class="eyebrow">Protect Your Home from the Top Down</div>
-    <h1>Keep your home safe and secure <span style="color:hsl(202, 100%, 23%)">with expert roofing services.</span></h1>
-    <p>Get matched with vetted roofing contractors near you. Compare free quotes, explore material options, and choose a solution that fits your budget and timeline.</p>
-    <button class="btn pulse">CHECK IF MY ZIP CODE QUALIFIES >></button>
-  </section>
-
-  <section class="ba wrap">
-    <img src="https://quotes.billy.com/wp-content/uploads/2025/09/Roofing.webp" alt="Before and After">
-  </section>
-
-  <section class="testimonials wrap">
-    <h2 style="text-align:center;margin:0 0 14px;font-size:28px;font-weight:900;">What Homeowners Say</h2>
-    <div class="t-grid">
-      <article class="t-card"><div class="t-stars">★★★★★</div><p>After a heavy storm, our roof was leaking...</p><div class="t-name">Sarah M.</div><div class="t-loc">Austin, TX</div></article>
-      <article class="t-card"><div class="t-stars">★★★★★</div><p>We replaced our old roof and the team did great!</p><div class="t-name">James K.</div><div class="t-loc">Scottsdale, AZ</div></article>
-      <article class="t-card"><div class="t-stars">★★★★☆</div><p>Smooth process from start to finish.</p><div class="t-name">Alicia R.</div><div class="t-loc">Tampa, FL</div></article>
+        
+        <div class="chat-container" id="chat-container">
+            <div class="message-container">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80" class="agent-avatar" alt="Health Agent">
+                <div class="message bot-message">
+                    Are you a Man or Woman?
+                </div>
+            </div>
+            <div class="message-container">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80" class="agent-avatar" alt="Health Agent">
+                <div class="message bot-message">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                </div>
+            </div>
+            <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+        
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Lorem ipsum dolor sit amet...">
+            <button id="send-btn">Send <i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
-  </section>
 
-  <footer>
-    <p>© 2025 All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
-  </footer>
-
-  <!-- ✅ Cookie Toggle Icon -->
-  <div id="cookieToggle">
-    <i class="fa-solid fa-cookie-bite"></i>
-  </div>
-
-  <!-- ✅ Cookie Box -->
-  <div id="cookieBox">
-    <p>🍪 We use cookies to improve your experience, analyze site traffic, and show personalized offers. Your privacy matters to us.</p>
-    <div class="cookie-buttons">
-      <button class="accept">Accept</button>
-      <button class="dismiss">Dismiss</button>
-    </div>
-  </div>
-
-  <script>
-    const cookieBox = document.getElementById("cookieBox");
-    const cookieToggle = document.getElementById("cookieToggle");
-    const acceptBtn = document.querySelector(".accept");
-    const dismissBtn = document.querySelector(".dismiss");
-    const saved = localStorage.getItem("cookieDecision");
-
-    // If already accepted or dismissed
-    if (saved === "accepted" || saved === "dismissed") {
-      cookieBox.style.display = "none";
-      cookieToggle.style.display = "none";
-    }
-
-    // Toggle show/hide
-    cookieToggle.addEventListener("click", () => {
-      cookieBox.classList.toggle("show");
-    });
-
-    const hideAll = () => {
-      cookieBox.classList.remove("show");
-      setTimeout(() => {
-        cookieBox.style.display = "none";
-        cookieToggle.style.display = "none";
-      }, 400);
-    };
-
-    // Accept button
-    acceptBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      localStorage.setItem("cookieDecision", "accepted");
-      if (typeof gtag === "function") {
-        gtag("consent", "update", { ad_storage: "granted", analytics_storage: "granted" });
-      }
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: "cookie_consent", consent: "granted" });
-      hideAll();
-    });
-
-    // Dismiss button
-    dismissBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      localStorage.setItem("cookieDecision", "dismissed");
-      if (typeof gtag === "function") {
-        gtag("consent", "update", { ad_storage: "denied", analytics_storage: "denied" });
-      }
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: "cookie_consent", consent: "denied" });
-      hideAll();
-    });
-  </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatContainer = document.getElementById('chat-container');
+            const userInput = document.getElementById('user-input');
+            const sendBtn = document.getElementById('send-btn');
+            const typingIndicator = document.getElementById('typing-indicator');
+            
+            let currentStep = 1;
+            let userData = {
+                age: '',
+                healthCondition: '',
+                income: '',
+                zipCode: ''
+            };
+            
+            // Show typing indicator
+            function showTypingIndicator() {
+                typingIndicator.style.display = 'flex';
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            
+            // Hide typing indicator
+            function hideTypingIndicator() {
+                typingIndicator.style.display = 'none';
+            }
+            
+            // Add message to chat
+            function addMessage(message, isUser = false) {
+                if (isUser) {
+                    const userMessageContainer = document.createElement('div');
+                    userMessageContainer.classList.add('user-message-container');
+                    
+                    const messageDiv = document.createElement('div');
+                    messageDiv.classList.add('message');
+                    messageDiv.classList.add('user-message');
+                    messageDiv.textContent = message;
+                    
+                    userMessageContainer.appendChild(messageDiv);
+                    chatContainer.insertBefore(userMessageContainer, typingIndicator);
+                } else {
+                    const messageContainer = document.createElement('div');
+                    messageContainer.classList.add('message-container');
+                    
+                    const agentImg = document.createElement('img');
+                    agentImg.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80';
+                    agentImg.classList.add('agent-avatar');
+                    agentImg.alt = 'Health Agent';
+                    
+                    const messageDiv = document.createElement('div');
+                    messageDiv.classList.add('message');
+                    messageDiv.classList.add('bot-message');
+                    messageDiv.textContent = message;
+                    
+                    messageContainer.appendChild(agentImg);
+                    messageContainer.appendChild(messageDiv);
+                    chatContainer.insertBefore(messageContainer, typingIndicator);
+                }
+                
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            
+            // Show options for user to select
+            function showOptions(options) {
+                const optionsDiv = document.createElement('div');
+                optionsDiv.classList.add('options');
+                
+                options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.classList.add('option-btn');
+                    button.textContent = option;
+                    button.addEventListener('click', () => {
+                        // Clear any existing options
+                        const existingOptions = document.querySelectorAll('.options');
+                        existingOptions.forEach(opt => opt.remove());
+                        
+                        addMessage(option, true);
+                        processResponse(option);
+                    });
+                    optionsDiv.appendChild(button);
+                });
+                
+                chatContainer.insertBefore(optionsDiv, typingIndicator);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            
+            // Process user response
+            function processResponse(response) {
+                userInput.value = '';
+                
+                showTypingIndicator();
+                
+                setTimeout(() => {
+                    hideTypingIndicator();
+                    
+                    switch (currentStep) {
+                        case 1:
+                            userData.age = response;
+                            addMessage("Have you ever used Uber or Lyft before?");
+                            showOptions(['Yes', 'No']);
+                            currentStep = 2;
+                            break;
+                        case 2:
+                            userData.healthCondition = response;
+                            addMessage("Nullam efficitur justo eget arcu tempus, quis aliquet velit bibendum?");
+                            showOptions(['Under $2,000', '$2,000 - $4,000', '$4,000 - $6,000', 'Over $6,000']);
+                            currentStep = 3;
+                            break;
+                        case 3:
+                            userData.income = response;
+                            addMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit?");
+                            currentStep = 4;
+                            break;
+                        case 4:
+                            userData.zipCode = response;
+                            addMessage("Nullam efficitur justo eget arcu tempus, quis aliquet velit bibendum...");
+                            showFinalMessage();
+                            currentStep = 5;
+                            break;
+                    }
+                }, 1000);
+            }
+            
+            // Handle user response from input field
+            function handleResponse() {
+                const response = userInput.value.trim();
+                
+                if (!response) return;
+                
+                // Clear any existing options
+                const existingOptions = document.querySelectorAll('.options');
+                existingOptions.forEach(opt => opt.remove());
+                
+                addMessage(response, true);
+                processResponse(response);
+            }
+            
+            // Show final message after quiz completion
+            function showFinalMessage() {
+                showTypingIndicator();
+                
+                setTimeout(() => {
+                    hideTypingIndicator();
+                    
+                    // Add call button
+                    const callButtonDiv = document.createElement('div');
+                    callButtonDiv.style.textAlign = 'center';
+                    callButtonDiv.style.margin = '15px 0';
+                    callButtonDiv.innerHTML = `
+                        <button class="cta-button" onclick="callNow()">
+                            <i class="fas fa-phone"></i> Call Now: (855) 342-7636
+                        </button>
+                    `;
+                    chatContainer.appendChild(callButtonDiv);
+                    
+                    // Show completion message
+                    const resultContainer = document.createElement('div');
+                    resultContainer.style.textAlign = 'center';
+                    resultContainer.style.padding = '20px';
+                    resultContainer.innerHTML = `
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Nullam efficitur justo eget arcu tempus, quis aliquet velit bibendum.</p>
+                    `;
+                    chatContainer.appendChild(resultContainer);
+                    
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                }, 2000);
+            }
+            
+            // Call now function
+            window.callNow = function() {
+                window.location.href = 'tel:+18553427636';
+            }
+            
+            // Event listeners
+            sendBtn.addEventListener('click', handleResponse);
+            userInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleResponse();
+            });
+            
+            // Show initial options for age question
+            setTimeout(() => {
+                showOptions(['Yes', 'No',]);
+            }, 500);
+        });
+    </script>
 </body>
 </html>
